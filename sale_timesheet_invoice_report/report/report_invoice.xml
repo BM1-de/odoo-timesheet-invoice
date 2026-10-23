@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Baumgärtner Marketing GmbH
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template
+        id="report_invoice_document"
+        inherit_id="account.report_invoice_document"
+        name="Invoice: Timesheets"
+    >
+        <xpath expr="//div[hasclass('overflow-hidden')]" position="after">
+            <t t-set="report_timesheets" t-value="o._get_report_timesheets()" />
+            <div
+                t-if="report_timesheets"
+                class="o_timesheet_invoice_report"
+                style="page-break-before: always;"
+            >
+                <h4 class="mt-4">Timesheets</h4>
+                <t
+                    t-set="duration_options"
+                    t-value="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"
+                />
+                <t
+                    t-foreach="report_timesheets.grouped('task_id').items()"
+                    t-as="task_group"
+                >
+                    <t t-set="task" t-value="task_group[0]" />
+                    <t t-set="task_lines" t-value="task_group[1]" />
+                    <h5 class="mt-4 mb-1">
+                        <t t-if="task" t-out="task.name" />
+                        <t t-else="">Other services</t>
+                    </h5>
+                    <table class="table table-sm mb-0">
+                        <thead style="display: table-row-group">
+                            <tr>
+                                <th class="text-start align-middle" style="width: 15%;">
+                                    <span>Date</span>
+                                </th>
+                                <th class="text-start align-middle">
+                                    <span>Description</span>
+                                </th>
+                                <th class="text-end align-middle" style="width: 18%;">
+                                    <span>Time Spent</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                t-foreach="task_lines"
+                                t-as="line"
+                                t-att-style="'background-color: #F1F1F1;' if line_index % 2 == 0 else ''"
+                            >
+                                <td class="align-middle">
+                                    <span t-field="line.date" />
+                                </td>
+                                <td class="align-middle">
+                                    <span
+                                        t-field="line.name"
+                                        t-options="{'widget': 'text'}"
+                                    />
+                                </td>
+                                <td class="text-end align-middle">
+                                    <span
+                                        t-field="line.unit_amount"
+                                        t-options="duration_options"
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-end" colspan="3">
+                                    <span class="me-3">Subtotal</span>
+                                    <t
+                                        t-out="sum(task_lines.mapped('unit_amount'))"
+                                        t-options="duration_options"
+                                    />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+                <table class="table table-sm mt-3">
+                    <tbody>
+                        <tr>
+                            <td class="text-end">
+                                <strong>
+                                    <span class="me-3">Total (hours)</span>
+                                    <t
+                                        t-out="sum(report_timesheets.mapped('unit_amount'))"
+                                        t-options="duration_options"
+                                    />
+                                </strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+    </template>
+</odoo>

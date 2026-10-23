@@ -1,0 +1,144 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_timesheet_invoice_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20261015\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-23 05:57+0000\n"
+"PO-Revision-Date: 2026-10-23 05:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_timesheet_invoice_report
+#: model_terms:ir.ui.view,arch_db:sale_timesheet_invoice_report.report_invoice_document
+msgid "<span class=\"me-3\">Subtotal</span>"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model_terms:ir.ui.view,arch_db:sale_timesheet_invoice_report.report_invoice_document
+msgid "<span class=\"me-3\">Total (hours)</span>"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model_terms:ir.ui.view,arch_db:sale_timesheet_invoice_report.report_invoice_document
+msgid "<span>Date</span>"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model_terms:ir.ui.view,arch_db:sale_timesheet_invoice_report.report_invoice_document
+msgid "<span>Description</span>"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model_terms:ir.ui.view,arch_db:sale_timesheet_invoice_report.report_invoice_document
+msgid "<span>Time Spent</span>"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields.selection,name:sale_timesheet_invoice_report.selection__account_move__timesheet_on_invoice__partner
+msgid "As on the Customer"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields.selection,name:sale_timesheet_invoice_report.selection__account_move_line__timesheet_on_invoice__move
+msgid "As on the Invoice"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model,name:sale_timesheet_invoice_report.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move__display_name
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move__id
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move_line__id
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model_terms:ir.ui.view,arch_db:sale_timesheet_invoice_report.view_partner_form
+msgid "Invoicing of Time"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model,name:sale_timesheet_invoice_report.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model,name:sale_timesheet_invoice_report.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields.selection,name:sale_timesheet_invoice_report.selection__account_move__timesheet_on_invoice__no
+#: model:ir.model.fields.selection,name:sale_timesheet_invoice_report.selection__account_move_line__timesheet_on_invoice__no
+#: model:ir.model.fields.selection,name:sale_timesheet_invoice_report.selection__res_partner__timesheet_on_invoice__no
+msgid "No"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model_terms:ir.ui.view,arch_db:sale_timesheet_invoice_report.report_invoice_document
+msgid "Other services"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields,help:sale_timesheet_invoice_report.field_res_partner__timesheet_on_invoice
+#: model:ir.model.fields,help:sale_timesheet_invoice_report.field_res_users__timesheet_on_invoice
+msgid ""
+"Print the billed time entries on the invoices of this customer. Each invoice"
+" and each invoice line can deviate from it."
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields,help:sale_timesheet_invoice_report.field_account_bank_statement_line__timesheet_on_invoice
+#: model:ir.model.fields,help:sale_timesheet_invoice_report.field_account_move__timesheet_on_invoice
+msgid ""
+"Print the billed time entries on this invoice. Each invoice line can deviate"
+" from it."
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields,help:sale_timesheet_invoice_report.field_account_move_line__timesheet_on_invoice
+msgid "Print the time entries billed by this line on the invoice."
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move_line__timesheet_on_invoice
+#: model_terms:ir.ui.view,arch_db:sale_timesheet_invoice_report.report_invoice_document
+#: model_terms:ir.ui.view,arch_db:sale_timesheet_invoice_report.view_move_form
+msgid "Timesheets"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_res_partner__timesheet_on_invoice
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_res_users__timesheet_on_invoice
+msgid "Timesheets on Invoices"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_bank_statement_line__timesheet_on_invoice
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move__timesheet_on_invoice
+msgid "Timesheets on the Invoice"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model.fields.selection,name:sale_timesheet_invoice_report.selection__account_move__timesheet_on_invoice__yes
+#: model:ir.model.fields.selection,name:sale_timesheet_invoice_report.selection__account_move_line__timesheet_on_invoice__yes
+#: model:ir.model.fields.selection,name:sale_timesheet_invoice_report.selection__res_partner__timesheet_on_invoice__yes
+msgid "Yes"
+msgstr ""

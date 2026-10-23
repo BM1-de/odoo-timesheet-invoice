@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Baumgärtner Marketing GmbH
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form.sale_timesheet_invoice_report</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']" position="inside">
+                <group string="Invoicing of Time" name="timesheet_on_invoice">
+                    <field
+                        name="timesheet_on_invoice"
+                        readonly="parent_id"
+                        widget="radio"
+                        options="{'horizontal': true}"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

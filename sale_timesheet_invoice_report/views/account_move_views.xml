@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Baumgärtner Marketing GmbH
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form.sale_timesheet_invoice_report</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@id='other_tab']" position="inside">
+                <group
+                    string="Timesheets"
+                    name="timesheet_on_invoice"
+                    invisible="move_type not in ('out_invoice', 'out_refund')"
+                >
+                    <field name="timesheet_on_invoice" />
+                </group>
+            </xpath>
+            <xpath
+                expr="//field[@name='invoice_line_ids']//field[@name='quantity']"
+                position="after"
+            >
+                <field
+                    name="timesheet_on_invoice"
+                    optional="hide"
+                    column_invisible="parent.move_type not in ('out_invoice', 'out_refund')"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
