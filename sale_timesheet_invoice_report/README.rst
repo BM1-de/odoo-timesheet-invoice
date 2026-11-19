@@ -35,6 +35,9 @@ Three levels decide whether they are printed, each one overriding the
 one above: the customer, the invoice and the invoice line that billed
 them.
 
+The e-mail of the invoice carries no second time sheet: the report
+*Timesheets* that Odoo 20 attaches to it is left out.
+
 .. IMPORTANT::
    This is an alpha version, the data model and design can change at any time without warning.
    Only for development or testing purpose, do not use in production.
@@ -66,18 +69,20 @@ stays available.
 
 |An invoice with its time entries|
 
+Sending the invoice by e-mail attaches the invoice with its time
+entries, and nothing else about them. Odoo 20 also attaches its own
+report *Timesheets* to the e-mail of an invoice that bills time entries
+(e-mail template *Invoice: Sending*, field *Dynamic Reports*); this
+module leaves it out, whatever is set for the customer. So the settings
+of this module alone decide whether the e-mail carries time entries: for
+a customer, invoice or line set to *No*, none at all.
+
 .. |An invoice with its time entries| image:: https://raw.githubusercontent.com/BM1-de/odoo-timesheet-invoice/20.0/sale_timesheet_invoice_report/static/description/invoice.png
 
 Known issues / Roadmap
 ======================
 
 - Choose the columns per company, for example with the employee.
-- Odoo 20 attaches its own report *Timesheets* to the e-mail of an
-  invoice that bills time entries (e-mail template *Invoice: Sending*,
-  field *Dynamic Reports*). It lists every billed time entry with the
-  employee, whatever is set for the customer, the invoice or the line
-  here. Remove the report from the e-mail template if the invoice alone
-  should carry the time entries.
 
 Changelog
 =========
@@ -85,14 +90,15 @@ Changelog
 20.0.1.0.0
 ----------
 
-- Migration to Odoo 20. The module itself is unchanged: the invoice
-  report, the forms of the customer and the invoice and the link between
-  a time entry and its invoice (now ``reinvoice_move_id`` behind the
-  unchanged ``timesheet_ids`` of the invoice) still fit.
-- New in Odoo 20, not part of this module: the e-mail of an invoice that
-  bills time entries gets the report *Timesheets* of Odoo as a second
-  attachment. The settings of this module do not apply to it, see the
-  known issues.
+- Migration to Odoo 20. The invoice report, the forms of the customer
+  and the invoice and the link between a time entry and its invoice (now
+  ``reinvoice_move_id`` behind the unchanged ``timesheet_ids`` of the
+  invoice) work unchanged.
+- The e-mail of an invoice no longer gets the report *Timesheets* that
+  Odoo 20 attaches to invoices that bill time entries. It listed every
+  billed time entry with the employee, whatever was set for the
+  customer, the invoice or the line. The time entries are on the invoice
+  itself, as set with this module.
 
 19.0.1.0.0
 ----------

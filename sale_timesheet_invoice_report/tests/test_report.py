@@ -2,13 +2,15 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 """Time entries on the invoice, switched per customer, invoice and line."""
 
+from odoo import Command
 from odoo.tests import tagged
 
 from odoo.addons.sale_timesheet.tests.common import TestCommonSaleTimesheet
 
 
-@tagged("post_install", "-at_install")
-class TestTimesheetInvoiceReport(TestCommonSaleTimesheet):
+class TimesheetInvoiceCommon(TestCommonSaleTimesheet):
+    """An invoice of a sales order with three time entries on two tasks."""
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -70,6 +72,9 @@ class TestTimesheetInvoiceReport(TestCommonSaleTimesheet):
             lambda line: line.move_id == self.invoice
         )
 
+
+@tagged("post_install", "-at_install")
+class TestTimesheetInvoiceReport(TimesheetInvoiceCommon):
     def test_all_time_entries_by_task(self):
         self.assertEqual(self.invoice._get_report_timesheets(), self.timesheets)
         html = self.html()
@@ -134,3 +139,79 @@ class TestTimesheetInvoiceReport(TestCommonSaleTimesheet):
         )
         self.partner_a.timesheet_on_invoice = "no"
         self.assertEqual(contact.timesheet_on_invoice, "no")
+
+
+@tagged("post_install", "-at_install")
+class TestTimesheetInvoiceMail(TimesheetInvoiceCommon):
+    """The e-mail of the invoice carries no report *Timesheets* of Odoo."""
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.partner_a.email = "accounting@example.com"
+        cls.timesheet_report = cls.env.ref(
+            "sale_timesheet.timesheet_report_account_move"
+        )
+
+    def send(self):
+        """Send the invoice by e-mail; the widget and the attachments sent."""
+        self.invoice.action_post()
+        wizard = (
+            self.env["account.move.send.wizard"]
+            .with_context(active_model="account.move", active_ids=self.invoice.ids)
+            .create({"sending_methods": ["email"]})
+        )
+        self.assertIn(self.timesheet_report, wizard.template_id.report_template_ids)
+        widget = wizard.mail_attachments_widget
+        wizard.action_send_and_print()
+        message = self.env["mail.message"].search(
+            [
+                ("model", "=", "account.move"),
+                ("res_id", "=", self.invoice.id),
+                ("attachment_ids", "!=", False),
+            ]
+        )
+        self.assertEqual(len(message), 1)
+        return widget, message.attachment_ids
+
+    def assertOnlyTheInvoice(self, widget, attachments):
+        self.assertEqual(
+            [item["name"] for item in widget],
+            [self.invoice._get_invoice_report_filename()],
+        )
+        self.assertFalse([item for item in widget if item.get("dynamic_report")])
+        # the message gets a copy of the PDF of the invoice, nothing else
+        self.assertEqual(attachments.mapped("name"), [widget[0]["name"]])
+
+    def test_mail_with_timesheets_on_the_invoice(self):
+        widget, attachments = self.send()
+        self.assertOnlyTheInvoice(widget, attachments)
+        # the tests render reports as HTML: the time entries are in the invoice
+        self.assertIn(b"Total (hours)", attachments.raw.content)
+
+    def test_mail_of_a_customer_without_timesheets(self):
+        self.partner_a.timesheet_on_invoice = "no"
+        widget, attachments = self.send()
+        self.assertOnlyTheInvoice(widget, attachments)
+        self.assertNotIn(b"Total (hours)", attachments.raw.content)
+
+    def test_other_reports_of_the_template_stay(self):
+        other_report = self.env.ref("account.account_invoices_without_payment")
+        template = self.env["mail.template"].create(
+            {
+                "name": "Invoice with extra reports",
+                "model_id": self.env["ir.model"]._get_id("account.move"),
+                "report_template_ids": [
+                    Command.set((self.timesheet_report | other_report).ids)
+                ],
+            }
+        )
+        placeholders = self.env[
+            "account.move.send"
+        ]._get_placeholder_mail_template_dynamic_attachments_data(
+            self.invoice, template
+        )
+        self.assertEqual(
+            [item["dynamic_report"] for item in placeholders],
+            [other_report.report_name],
+        )

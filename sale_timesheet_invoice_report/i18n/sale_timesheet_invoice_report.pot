@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 20.0-20261110\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 17:07+0000\n"
-"PO-Revision-Date: 2026-11-19 17:07+0000\n"
+"POT-Creation-Date: 2026-11-19 17:17+0000\n"
+"PO-Revision-Date: 2026-11-19 17:17+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -58,6 +58,7 @@ msgstr ""
 #. module: sale_timesheet_invoice_report
 #: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move__display_name
 #: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move_send__display_name
 #: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_res_partner__display_name
 msgid "Display Name"
 msgstr ""
@@ -65,6 +66,7 @@ msgstr ""
 #. module: sale_timesheet_invoice_report
 #: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move__id
 #: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move_line__id
+#: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_account_move_send__id
 #: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_res_partner__id
 msgid "ID"
 msgstr ""
@@ -122,6 +124,11 @@ msgstr ""
 #. module: sale_timesheet_invoice_report
 #: model:ir.model.fields,help:sale_timesheet_invoice_report.field_account_move_line__timesheet_on_invoice
 msgid "Print the time entries billed by this line on the invoice."
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
+#: model:ir.model,name:sale_timesheet_invoice_report.model_account_move_send
+msgid "Shared Send Invoice Wizard Functions"
 msgstr ""
 
 #. module: sale_timesheet_invoice_report

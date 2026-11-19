@@ -9,3 +9,6 @@ development"):
 
 Three levels decide whether they are printed, each one overriding the one
 above: the customer, the invoice and the invoice line that billed them.
+
+The e-mail of the invoice carries no second time sheet: the report
+*Timesheets* that Odoo 20 attaches to it is left out.

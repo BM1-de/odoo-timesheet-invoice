@@ -18,6 +18,7 @@
  "Print the billed time entries on the invoices of this customer. Each invoice and each invoice line can deviate from it.": "Die abgerechneten Zeiteinträge auf den Rechnungen dieses Kunden drucken. Jede Rechnung und jede Rechnungsposition kann davon abweichen.",
  "Print the billed time entries on this invoice. Each invoice line can deviate from it.": "Die abgerechneten Zeiteinträge auf dieser Rechnung drucken. Jede Rechnungsposition kann davon abweichen.",
  "Print the time entries billed by this line on the invoice.": "Die mit dieser Position abgerechneten Zeiteinträge auf der Rechnung drucken.",
+ "Shared Send Invoice Wizard Functions": "Gemeinsame Funktionen des Assistenten zum Senden von Rechnungen",
  "Timesheets": "Stundennachweis",
  "Timesheets on Invoices": "Stundennachweis auf Rechnungen",
  "Timesheets on the Invoice": "Stundennachweis auf der Rechnung",
