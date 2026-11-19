@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0-20261015\n"
+"Project-Id-Version: Odoo Server 20.0-20261110\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-23 05:57+0000\n"
-"PO-Revision-Date: 2026-10-23 05:57+0000\n"
+"POT-Creation-Date: 2026-11-19 17:07+0000\n"
+"PO-Revision-Date: 2026-11-19 17:07+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -97,6 +97,13 @@ msgid "Other services"
 msgstr ""
 
 #. module: sale_timesheet_invoice_report
+#: model:ir.module.module,summary:base.module_sale_timesheet_invoice_report
+msgid ""
+"Print the billed time entries on the invoice, grouped by task, switchable "
+"per customer, invoice and invoice line"
+msgstr ""
+
+#. module: sale_timesheet_invoice_report
 #: model:ir.model.fields,help:sale_timesheet_invoice_report.field_res_partner__timesheet_on_invoice
 #: model:ir.model.fields,help:sale_timesheet_invoice_report.field_res_users__timesheet_on_invoice
 msgid ""
@@ -127,6 +134,7 @@ msgstr ""
 #. module: sale_timesheet_invoice_report
 #: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_res_partner__timesheet_on_invoice
 #: model:ir.model.fields,field_description:sale_timesheet_invoice_report.field_res_users__timesheet_on_invoice
+#: model:ir.module.module,shortdesc:base.module_sale_timesheet_invoice_report
 msgid "Timesheets on Invoices"
 msgstr ""
 

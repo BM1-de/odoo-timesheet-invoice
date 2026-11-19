@@ -17,7 +17,7 @@ Timesheets on Invoices
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-BM1--de%2Fodoo--timesheet--invoice-lightgray.png?logo=github
-    :target: https://github.com/BM1-de/odoo-timesheet-invoice/tree/19.0/sale_timesheet_invoice_report
+    :target: https://github.com/BM1-de/odoo-timesheet-invoice/tree/20.0/sale_timesheet_invoice_report
     :alt: BM1-de/odoo-timesheet-invoice
 
 |badge1| |badge2| |badge3|
@@ -66,15 +66,33 @@ stays available.
 
 |An invoice with its time entries|
 
-.. |An invoice with its time entries| image:: https://raw.githubusercontent.com/BM1-de/odoo-timesheet-invoice/19.0/sale_timesheet_invoice_report/static/description/invoice.png
+.. |An invoice with its time entries| image:: https://raw.githubusercontent.com/BM1-de/odoo-timesheet-invoice/20.0/sale_timesheet_invoice_report/static/description/invoice.png
 
 Known issues / Roadmap
 ======================
 
 - Choose the columns per company, for example with the employee.
+- Odoo 20 attaches its own report *Timesheets* to the e-mail of an
+  invoice that bills time entries (e-mail template *Invoice: Sending*,
+  field *Dynamic Reports*). It lists every billed time entry with the
+  employee, whatever is set for the customer, the invoice or the line
+  here. Remove the report from the e-mail template if the invoice alone
+  should carry the time entries.
 
 Changelog
 =========
+
+20.0.1.0.0
+----------
+
+- Migration to Odoo 20. The module itself is unchanged: the invoice
+  report, the forms of the customer and the invoice and the link between
+  a time entry and its invoice (now ``reinvoice_move_id`` behind the
+  unchanged ``timesheet_ids`` of the invoice) still fit.
+- New in Odoo 20, not part of this module: the e-mail of an invoice that
+  bills time entries gets the report *Timesheets* of Odoo as a second
+  attachment. The settings of this module do not apply to it, see the
+  known issues.
 
 19.0.1.0.0
 ----------
@@ -88,7 +106,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/BM1-de/odoo-timesheet-invoice/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/BM1-de/odoo-timesheet-invoice/issues/new?body=module:%20sale_timesheet_invoice_report%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/BM1-de/odoo-timesheet-invoice/issues/new?body=module:%20sale_timesheet_invoice_report%0Aversion:%2020.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -116,6 +134,6 @@ Current maintainer:
 
 |maintainer-bm1-phillip| 
 
-This module is part of the `BM1-de/odoo-timesheet-invoice <https://github.com/BM1-de/odoo-timesheet-invoice/tree/19.0/sale_timesheet_invoice_report>`_ project on GitHub.
+This module is part of the `BM1-de/odoo-timesheet-invoice <https://github.com/BM1-de/odoo-timesheet-invoice/tree/20.0/sale_timesheet_invoice_report>`_ project on GitHub.
 
 You are welcome to contribute.

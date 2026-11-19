@@ -14,6 +14,7 @@
  "Journal Item": "Buchungszeile",
  "No": "Nein",
  "Other services": "Sonstige Leistungen",
+ "Print the billed time entries on the invoice, grouped by task, switchable per customer, invoice and invoice line": "Die abgerechneten Zeiteinträge auf der Rechnung drucken, je Aufgabe gruppiert, schaltbar je Kunde, Rechnung und Rechnungsposition",
  "Print the billed time entries on the invoices of this customer. Each invoice and each invoice line can deviate from it.": "Die abgerechneten Zeiteinträge auf den Rechnungen dieses Kunden drucken. Jede Rechnung und jede Rechnungsposition kann davon abweichen.",
  "Print the billed time entries on this invoice. Each invoice line can deviate from it.": "Die abgerechneten Zeiteinträge auf dieser Rechnung drucken. Jede Rechnungsposition kann davon abweichen.",
  "Print the time entries billed by this line on the invoice.": "Die mit dieser Position abgerechneten Zeiteinträge auf der Rechnung drucken.",

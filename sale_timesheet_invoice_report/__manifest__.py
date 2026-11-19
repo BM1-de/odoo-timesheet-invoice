@@ -4,7 +4,7 @@
     "name": "Timesheets on Invoices",
     "summary": "Print the billed time entries on the invoice, grouped by task, "
     "switchable per customer, invoice and invoice line",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "website": "https://github.com/BM1-de/odoo-timesheet-invoice",
     "author": "Baumgärtner Marketing GmbH",

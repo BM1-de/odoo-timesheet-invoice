@@ -87,7 +87,7 @@ banner(
         "Timesheets on Invoices",
         "The billed time entries on the invoice, by task",
         "switchable per customer, invoice and invoice line",
-        "Odoo 19 · Sales and Timesheets",
+        "Odoo 20 · Sales and Timesheets",
     ),
 )
 print("ok")
